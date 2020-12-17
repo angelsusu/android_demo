@@ -1,0 +1,3 @@
+rootProject.name='PhotoTest'
+include ':app'
+include ':mylibrary'
