@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.phototest">
+    package="com.example.test">
 
 
     <uses-permission android:name="android.permission.CAMERA" />
@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.test.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,8 +21,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".TestActivity"
+        <activity android:name="com.example.test.log.TestActivity"
             android:process=":other"/>
+
+        <activity android:name=".player.PlayerTestActivity"/>
     </application>
 
 </manifest>

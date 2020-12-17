@@ -1,4 +1,4 @@
-package com.example.phototest
+package com.example.test
 
 import android.Manifest
 import android.content.Intent
@@ -12,6 +12,10 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.dianping.logan.Logan
 import com.dianping.logan.LoganConfig
+import com.example.test.log.LoganParser
+import com.example.test.log.TestActivity
+import com.example.test.player.PlayerTestActivity
+import com.tencent.mars.xlog.Xlog
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.*
 import java.text.ParseException
@@ -52,6 +56,9 @@ class MainActivity : AppCompatActivity() {
         }
         btn_logger_xLog?.setOnClickListener {
             xLogTest()
+        }
+        btn_player_test?.setOnClickListener {
+            startActivity(Intent(this, PlayerTestActivity::class.java))
         }
     }
 
@@ -192,7 +199,10 @@ class MainActivity : AppCompatActivity() {
 
     //美团logan解密测试
     private fun loganParse() {
-        val parser = LoganParser("0123456789012345".toByteArray(), "0123456789012345".toByteArray())
+        val parser = LoganParser(
+            "0123456789012345".toByteArray(),
+            "0123456789012345".toByteArray()
+        )
         val map = Logan.getAllFilesInfo()
         for ((key, value) in map) {
             val name = getDateToString(key)
@@ -244,24 +254,24 @@ class MainActivity : AppCompatActivity() {
     //微信 xLog测试
     private fun xLogTest() {
         //初始化
-//        System.loadLibrary("c++_shared");
-//        System.loadLibrary("marsxlog");
-//
-//        val SDCARD = getExternalFilesDir("/xlog")?.absolutePath
-//        val logPath = SDCARD
-//
-//        // this is necessary, or may crash for SIGBUS
-//        val cachePath = this.getFilesDir().absolutePath + "/xlog"
-//
-//        Log.d("xLogTest", "$logPath")
-//        Xlog.appenderOpen(Xlog.LEVEL_DEBUG, Xlog.AppednerModeAsync, cachePath, logPath,
-//            "MarsSample", 0, "");
-//        Xlog.setConsoleLogOpen(true);
-//
-//        com.tencent.mars.xlog.Log.setLogImp(Xlog())
-//
-//        //test
-//        com.tencent.mars.xlog.Log.d("xLogTest", "", "", 0, 0, 0, 0L, "test xlog")
+        System.loadLibrary("c++_shared");
+        System.loadLibrary("marsxlog");
+
+        val SDCARD = getExternalFilesDir("/xlog")?.absolutePath
+        val logPath = SDCARD
+
+        // this is necessary, or may crash for SIGBUS
+        val cachePath = this.getFilesDir().absolutePath + "/xlog"
+
+        Log.d("xLogTest", "$logPath")
+        Xlog.appenderOpen(Xlog.LEVEL_DEBUG, Xlog.AppednerModeAsync, cachePath, logPath,
+            "MarsSample", 0, "");
+        Xlog.setConsoleLogOpen(true);
+
+        com.tencent.mars.xlog.Log.setLogImp(Xlog())
+
+        //test
+        com.tencent.mars.xlog.Log.d("xLogTest", "", "", 0, 0, 0, 0L, "test xlog")
         startActivity(Intent(this, TestActivity::class.java))
 
     }

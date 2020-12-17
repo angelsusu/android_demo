@@ -1,3 +1,2 @@
-rootProject.name='PhotoTest'
+rootProject.name='AndroidDemo'
 include ':app'
-include ':mylibrary'

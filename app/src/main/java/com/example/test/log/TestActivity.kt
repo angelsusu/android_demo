@@ -1,4 +1,4 @@
-package com.example.phototest
+package com.example.test.log
 
 import android.os.Bundle
 import android.util.Log
@@ -50,7 +50,10 @@ class TestActivity : AppCompatActivity() {
 
     //美团logan解密测试
     private fun loganParse() {
-        val parser = LoganParser("0123456789012345".toByteArray(), "0123456789012345".toByteArray())
+        val parser = LoganParser(
+            "0123456789012345".toByteArray(),
+            "0123456789012345".toByteArray()
+        )
         val map = Logan.getAllFilesInfo()
         for ((key, value) in map) {
             val name = getDateToString(key)

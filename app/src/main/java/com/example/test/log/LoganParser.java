@@ -1,4 +1,4 @@
-package com.example.phototest;
+package com.example.test.log;
 
 /**
  * author: beitingsu
@@ -25,8 +25,6 @@ package com.example.phototest;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
-import android.util.Log;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
