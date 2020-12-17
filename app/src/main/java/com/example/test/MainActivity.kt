@@ -15,6 +15,7 @@ import com.dianping.logan.LoganConfig
 import com.example.test.log.LoganParser
 import com.example.test.log.TestActivity
 import com.example.test.player.PlayerTestActivity
+import com.example.test.room.RoomTestActivity
 import com.tencent.mars.xlog.Xlog
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.*
@@ -59,6 +60,9 @@ class MainActivity : AppCompatActivity() {
         }
         btn_player_test?.setOnClickListener {
             startActivity(Intent(this, PlayerTestActivity::class.java))
+        }
+        btn_room_test?.setOnClickListener {
+            startActivity(Intent(this, RoomTestActivity::class.java))
         }
     }
 

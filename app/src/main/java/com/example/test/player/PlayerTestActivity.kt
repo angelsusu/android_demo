@@ -1,5 +1,10 @@
 package com.example.test.player
 
+//import com.google.android.exoplayer2.Player
+//import com.google.android.exoplayer2.SimpleExoPlayer
+//import com.google.android.exoplayer2.source.ProgressiveMediaSource
+//import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
+//import com.google.android.exoplayer2.util.Util
 import android.content.Context
 import android.content.res.AssetFileDescriptor
 import android.media.AudioManager
@@ -10,22 +15,15 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.test.R
-//import com.google.android.exoplayer2.Player
-//import com.google.android.exoplayer2.SimpleExoPlayer
-//import com.google.android.exoplayer2.source.ProgressiveMediaSource
-//import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
-//import com.google.android.exoplayer2.util.Util
 import com.tencent.rtmp.ITXLivePlayListener
 import com.tencent.rtmp.TXLiveConstants
 import com.tencent.rtmp.TXLivePlayer
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_player_test.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import tv.danmaku.ijk.media.player.IjkMediaPlayer
 import java.io.IOException
-import java.util.concurrent.TimeUnit
 
 
 class PlayerTestActivity : AppCompatActivity() {
