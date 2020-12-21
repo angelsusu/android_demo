@@ -27,6 +27,7 @@
 
         <activity android:name=".player.PlayerTestActivity"/>
         <activity android:name=".room.RoomTestActivity"/>
+        <activity android:name=".lifecycle.LifecycleTestActivity"/>
     </application>
 
 </manifest>

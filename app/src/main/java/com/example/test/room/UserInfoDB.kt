@@ -1,8 +1,10 @@
 package com.example.test.room
 
 import android.content.Context
+import android.util.Log
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
 
 /**
  * author: beitingsu
@@ -14,7 +16,7 @@ abstract class UserInfoDB : RoomDatabase() {
 
    protected abstract fun getUserInfoDao(): UserInfoDao
 
-    //必须在这里定义？
+    //必须在这里定义
     fun userInfoDao(): UserInfoDao? {
         return getUserInfoDao()
     }
@@ -28,6 +30,16 @@ abstract class UserInfoDB : RoomDatabase() {
             .addMigrations(
                 MIGRATIONS.M_1_2
             )   //数据库升级使用
+            .addCallback(object : RoomDatabase.Callback() {
+
+                /**
+                 * Only call when database create first time, not every app launch time.
+                 */
+                override fun onCreate(db: SupportSQLiteDatabase) {
+                    super.onCreate(db)
+                    Log.d("UserInfoDB", "[onCreate]")
+                }
+            })
             .build()
     }
 }

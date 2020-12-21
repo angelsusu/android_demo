@@ -12,16 +12,22 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.dianping.logan.Logan
 import com.dianping.logan.LoganConfig
+import com.example.test.lifecycle.LifecycleTestActivity
 import com.example.test.log.LoganParser
 import com.example.test.log.TestActivity
 import com.example.test.player.PlayerTestActivity
 import com.example.test.room.RoomTestActivity
 import com.tencent.mars.xlog.Xlog
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.io.*
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.ConcurrentHashMap
+import java.util.concurrent.ConcurrentLinkedQueue
 
 
 class MainActivity : AppCompatActivity() {
@@ -63,6 +69,9 @@ class MainActivity : AppCompatActivity() {
         }
         btn_room_test?.setOnClickListener {
             startActivity(Intent(this, RoomTestActivity::class.java))
+        }
+        btn_lifecycle_test?.setOnClickListener {
+            startActivity(Intent(this, LifecycleTestActivity::class.java))
         }
     }
 
@@ -278,6 +287,35 @@ class MainActivity : AppCompatActivity() {
         com.tencent.mars.xlog.Log.d("xLogTest", "", "", 0, 0, 0, 0L, "test xlog")
         startActivity(Intent(this, TestActivity::class.java))
 
+    }
+
+    //todo 测试数据结构
+    private fun testMap() {
+        val map = ConcurrentHashMap<String, ConcurrentLinkedQueue<String>>()
+
+        GlobalScope.launch {
+            map.getOrPut("test") {
+                ConcurrentLinkedQueue()
+            }?.add("test1")
+        }
+
+        GlobalScope.launch {
+            map.getOrPut("test") {
+                ConcurrentLinkedQueue()
+            }?.add("test2")
+        }
+
+        GlobalScope.launch {
+            map.getOrPut("test") {
+                ConcurrentLinkedQueue()
+            }?.add("test3")
+        }
+        GlobalScope.launch {
+            delay(3000)
+            map["test"]?.forEach { str ->
+                Log.d("subeiting", "test map:$str")
+            }
+        }
     }
 
     companion object {
