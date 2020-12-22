@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center">
+
+    <com.example.test.widgets.CircleProgressView
+        android:id="@+id/circle_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:circleLineBackColor="#FFF3D8"
+        app:circleLineFrontColor="#FD6B3E"
+        app:circleLineCompleteColor="@color/colorPrimaryDark"
+        app:strokeWidth="4dp"
+        android:gravity="center"
+        app:animationDuration="1000"
+        app:progress="100"/>
+
+    <com.example.test.widgets.RobotoTextView
+        android:id="@+id/tv_circle_bar_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:gravity="center" />
+
+    <ImageView
+        android:id="@+id/iv_circle_bar_icon"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:src="@mipmap/ic_launcher" />
+
+
+</FrameLayout>

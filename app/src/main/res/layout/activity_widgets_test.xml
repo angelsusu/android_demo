@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:paddingTop="20dp"
+    android:gravity="center_horizontal">
+
+    <FrameLayout
+        android:layout_width="100dp"
+        android:layout_height="100dp">
+
+        <com.example.test.widgets.CircleProgressBar
+            android:id="@+id/circle_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            app:text="keep going"/>
+
+    </FrameLayout>
+
+
+
+</LinearLayout>

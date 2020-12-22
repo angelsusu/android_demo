@@ -1,4 +1,4 @@
-package com.shopee.foody.driver.db.base
+package com.example.test.room
 
 import androidx.room.Delete
 import androidx.room.Insert

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--circle progress bar-->
+    <declare-styleable name="CircleProgressBar">
+        <!--中心文字-->
+        <attr name="text" format="string"/>
+        <!--文字颜色-->
+        <attr name="textColor" format="color"/>
+        <!--文字大小，px-->
+        <attr name="textFontSize" format="dimension"/>
+        <!--字体类型-->
+        <attr name="typeface" format="integer"/>
+        <!--中心icon类型-->
+        <attr name="iconType" format="integer"/>
+    </declare-styleable>
+
+    <!--circle progress view-->
+    <declare-styleable name="CircleProgressView">
+        <!--边框宽度-->
+        <attr name="strokeWidth" format="dimension"/>
+        <!--未走的进度的颜色-->
+        <attr name="circleLineBackColor" format="color"/>
+        <!--已走的进度的颜色-->
+        <attr name="circleLineFrontColor" format="color"/>
+        <!--全部进度的颜色-->
+        <attr name="circleLineCompleteColor" format="color"/>
+        <!--已走的进度 0-100 -->
+        <attr name="progress" format="integer"/>
+        <!--动画时长, ms -->
+        <attr name="animationDuration" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="RobotoTextView">
+        <attr name="robotoTypeface" />
+        <attr name="robotoFontFamily" />
+        <attr name="robotoTextWeight" />
+    </declare-styleable>
+
+    <attr name="robotoTypeface">
+        <enum name="roboto_light" value="0" />
+        <enum name="roboto_regular" value="1" />
+        <enum name="roboto_medium" value="2" />
+        <enum name="roboto_bold" value="3" />
+    </attr>
+
+    <attr name="robotoFontFamily">
+        <enum name="roboto" value="0" />
+    </attr>
+
+    <attr name="robotoTextWeight">
+        <enum name="normal" value="0" />
+        <enum name="light" value="1" />
+        <enum name="medium" value="2" />
+        <enum name="bold" value="3" />
+    </attr>
+
+</resources>

@@ -17,6 +17,7 @@ import com.example.test.log.LoganParser
 import com.example.test.log.TestActivity
 import com.example.test.player.PlayerTestActivity
 import com.example.test.room.RoomTestActivity
+import com.example.test.widgets.WidgetsTestActivity
 import com.tencent.mars.xlog.Xlog
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.GlobalScope
@@ -72,6 +73,9 @@ class MainActivity : AppCompatActivity() {
         }
         btn_lifecycle_test?.setOnClickListener {
             startActivity(Intent(this, LifecycleTestActivity::class.java))
+        }
+        btn_widgets_test?.setOnClickListener {
+            startActivity(Intent(this, WidgetsTestActivity::class.java))
         }
     }
 

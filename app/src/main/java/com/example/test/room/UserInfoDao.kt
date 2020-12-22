@@ -2,7 +2,6 @@ package com.example.test.room
 
 import androidx.room.Dao
 import androidx.room.Query
-import com.shopee.foody.driver.db.base.BaseRoomDao
 
 /**
  * author: beitingsu
