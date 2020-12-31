@@ -3,6 +3,7 @@ package com.example.test.widgets
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.test.R
+import kotlinx.android.synthetic.main.activity_widgets_test.*
 
 /**
  * author: beitingsu
@@ -17,6 +18,11 @@ class WidgetsTestActivity: AppCompatActivity() {
     }
 
     private fun init() {
-
+        btn_change_text?.setOnClickListener {
+            circle_bar?.setText("go go go")
+        }
+        btn_change_icon?.setOnClickListener {
+            circle_bar?.setIconType(CircleProgressIconType.ICON_SUCCESS)
+        }
     }
 }

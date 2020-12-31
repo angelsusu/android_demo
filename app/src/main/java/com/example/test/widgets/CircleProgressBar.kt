@@ -3,6 +3,7 @@ package com.example.test.widgets
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
@@ -17,9 +18,13 @@ import kotlinx.android.synthetic.main.circle_progress_bar_view.view.*
  */
 class CircleProgressBar : FrameLayout {
 
+    companion object {
+        private const val TAG = "CircleProgressBar"
+    }
+
     private var mText = ""
     private var mTextColor = Color.parseColor("#FA9025")
-    private var mTextSize = 20f
+    private var mTextSize = 12f
 
     private var mIconType = 0
 
@@ -57,10 +62,12 @@ class CircleProgressBar : FrameLayout {
         mText = array.getString(R.styleable.CircleProgressBar_text) ?: ""
         mTextColor = array.getColor(R.styleable.CircleProgressBar_textColor, mTextColor)
         mTextSize = array.getDimension(R.styleable.CircleProgressBar_textFontSize, mTextSize)
+        mIconType = array.getInt(R.styleable.CircleProgressBar_iconType, mIconType)
 
-        setText(mText)
+        //setText(mText)
         setTextSize(mTextSize)
         setTextColor(mTextColor)
+        setIconType(mIconType)
 
         array.recycle()
     }
@@ -72,6 +79,7 @@ class CircleProgressBar : FrameLayout {
         tv_circle_bar_text?.text = text
         tv_circle_bar_text?.visibility = View.VISIBLE
         iv_circle_bar_icon?.visibility = View.GONE
+        Log.d("CircleProgressBar", "setIcon visibility Gone")
     }
 
     /**
@@ -99,10 +107,11 @@ class CircleProgressBar : FrameLayout {
      * 设置中心icon
      */
     fun setIconType(iconType: Int) {
-        iv_circle_bar_icon?.visibility = View.VISIBLE
-        tv_circle_bar_text?.visibility = View.GONE
         getIconRes(iconType)?.let { res ->
+            iv_circle_bar_icon?.visibility = View.VISIBLE
+            tv_circle_bar_text?.visibility = View.GONE
             iv_circle_bar_icon?.setImageResource(res)
+            Log.d("CircleProgressBar", "setIcon visibility visible")
         }
     }
 
@@ -111,6 +120,11 @@ class CircleProgressBar : FrameLayout {
             CircleProgressIconType.ICON_SUCCESS -> R.drawable.icon_incentives_success
             else -> null
         }
+    }
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        Log.d(TAG, "onMeasure")
     }
 }
 

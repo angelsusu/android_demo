@@ -9,19 +9,40 @@
     android:paddingTop="20dp"
     android:gravity="center_horizontal">
 
-    <FrameLayout
-        android:layout_width="100dp"
-        android:layout_height="100dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-        <com.example.test.widgets.CircleProgressBar
-            android:id="@+id/circle_bar"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            app:text="keep going"/>
+        <FrameLayout
+            android:layout_width="64dp"
+            android:layout_height="64dp">
 
-    </FrameLayout>
+            <com.example.test.widgets.CircleProgressBar
+                android:id="@+id/circle_bar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                app:text="keep going"
+                app:iconType="1"/>
 
+        </FrameLayout>
+
+
+        <Button
+            android:id="@+id/btn_change_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="修改圆环文案"/>
+
+        <Button
+            android:id="@+id/btn_change_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="显示中心icon"/>
+
+    </LinearLayout>
 
 
 </LinearLayout>

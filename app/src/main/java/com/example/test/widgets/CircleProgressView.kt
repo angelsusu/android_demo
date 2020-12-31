@@ -40,7 +40,7 @@ class CircleProgressView : View {
         ValueAnimator.ofFloat(0f, sweepAngle)?.apply {
             addUpdateListener {
                 sweepAngle = it.animatedValue as Float
-                Log.d("CircleProgressBar", "${it.animatedValue}")
+//                Log.d("CircleProgressBar", "${it.animatedValue}")
                 invalidate()
             }
         }
