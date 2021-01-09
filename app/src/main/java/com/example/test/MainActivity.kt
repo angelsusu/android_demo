@@ -17,6 +17,7 @@ import com.example.test.log.LoganParser
 import com.example.test.log.TestActivity
 import com.example.test.player.PlayerTestActivity
 import com.example.test.room.RoomTestActivity
+import com.example.test.viewmodel.ViewModelTestActivity
 import com.example.test.widgets.WidgetsTestActivity
 import com.tencent.mars.xlog.Xlog
 import kotlinx.android.synthetic.main.activity_main.*
@@ -76,6 +77,9 @@ class MainActivity : AppCompatActivity() {
         }
         btn_widgets_test?.setOnClickListener {
             startActivity(Intent(this, WidgetsTestActivity::class.java))
+        }
+        btn_viewModel_test?.setOnClickListener {
+            startActivity(Intent(this, ViewModelTestActivity::class.java))
         }
     }
 
