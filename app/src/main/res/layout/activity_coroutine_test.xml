@@ -10,103 +10,72 @@
         android:layout_height="match_parent"
         android:padding="15dp"
         tools:context=".MainActivity"
-        android:gravity="center_horizontal"
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btn_take_photo"
+            android:id="@+id/btn_mainscope_test"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="拍照" />
+            android:text="测试mainscope" />
+
+        <Button
+            android:id="@+id/btn_suspendCoroutine_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="测试suspendCoroutine" />
+
+        <Button
+            android:id="@+id/btn_job_join_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="测试join job" />
+
+        <Button
+            android:id="@+id/btn_job_await_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="测试await job" />
 
 
         <Button
-            android:id="@+id/btn_take_video"
+            android:id="@+id/btn_exception_test"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="拍摄视频" />
+            android:text="测试异常处理" />
+
+        <Button
+            android:id="@+id/btn_exception_launch_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="测试launch异常处理" />
+
+        <Button
+            android:id="@+id/btn_exception_async_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="测试async异常处理" />
+
+        <Button
+            android:id="@+id/btn_exception_double_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="测试异常传递处理(双向)" />
 
 
         <Button
-            android:id="@+id/btn_choose_pic"
+            android:id="@+id/btn_exception_singel_test"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="选择照片" />
-
-
-        <Button
-            android:id="@+id/btn_choose_video"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="选择视频" />
-
-        <Button
-            android:id="@+id/btn_logger_logan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="美团日志测试" />
-
-        <Button
-            android:id="@+id/btn_logger_parse"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="美团日志解密" />
-
-        <Button
-            android:id="@+id/btn_logger_xLog"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="微信日志测试" />
-
-        <Button
-            android:id="@+id/btn_player_test"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="播放器测试" />
-
-        <Button
-            android:id="@+id/btn_room_test"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="room数据库测试" />
-
-        <Button
-            android:id="@+id/btn_lifecycle_test"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="lifecycle相关测试" />
-
-        <Button
-            android:id="@+id/btn_viewModel_test"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="viewModel相关测试" />
-
-
-        <Button
-            android:id="@+id/btn_widgets_test"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="widgets相关测试" />
-
-        <Button
-            android:id="@+id/btn_coroutine_test"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="协程测试" />
+            android:text="测试异常传递处理(单向)" />
 
 
     </LinearLayout>
