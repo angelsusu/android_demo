@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat
 import com.dianping.logan.Logan
 import com.dianping.logan.LoganConfig
 import com.example.test.coroutine.CoroutineTestActivity
+import com.example.test.dagger.DaggerActivity
 import com.example.test.lifecycle.LifecycleTestActivity
 import com.example.test.log.LoganParser
 import com.example.test.log.TestActivity
@@ -84,6 +85,9 @@ class MainActivity : AppCompatActivity() {
         }
         btn_coroutine_test?.setOnClickListener {
             startActivity(Intent(this, CoroutineTestActivity::class.java))
+        }
+        btn_dagger_test?.setOnClickListener {
+            startActivity(Intent(this, DaggerActivity::class.java))
         }
     }
 
