@@ -19,6 +19,7 @@ import com.example.test.log.LoganParser
 import com.example.test.log.TestActivity
 import com.example.test.player.PlayerTestActivity
 import com.example.test.room.RoomTestActivity
+import com.example.test.rxjava.RxJavaActivity
 import com.example.test.viewmodel.ViewModelTestActivity
 import com.example.test.widgets.WidgetsTestActivity
 import com.tencent.mars.xlog.Xlog
@@ -88,6 +89,9 @@ class MainActivity : AppCompatActivity() {
         }
         btn_dagger_test?.setOnClickListener {
             startActivity(Intent(this, DaggerActivity::class.java))
+        }
+        btn_rxjava_test?.setOnClickListener {
+            startActivity(Intent(this, RxJavaActivity::class.java))
         }
     }
 

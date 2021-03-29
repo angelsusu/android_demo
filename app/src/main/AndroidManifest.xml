@@ -32,6 +32,9 @@
         <activity android:name=".viewmodel.ViewModelTestActivity"/>
         <activity android:name=".coroutine.CoroutineTestActivity"/>
         <activity android:name=".dagger.DaggerActivity"/>
+        <activity android:name=".rxjava.RxJavaActivity"/>
+        <activity android:name=".rxjava.RxJavaCreateActivity"/>
+        <activity android:name=".rxjava.RxJavaTransformActivity"/>
     </application>
 
 </manifest>
