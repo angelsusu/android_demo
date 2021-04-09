@@ -27,5 +27,8 @@ class RxJavaActivity : AppCompatActivity() {
         btn_transform_test?.setOnClickListener {
             startActivity(Intent(this, RxJavaTransformActivity::class.java))
         }
+        btn_combine_test?.setOnClickListener {
+            startActivity(Intent(this, RxJavaCombineActivity::class.java))
+        }
     }
 }

@@ -35,6 +35,7 @@
         <activity android:name=".rxjava.RxJavaActivity"/>
         <activity android:name=".rxjava.RxJavaCreateActivity"/>
         <activity android:name=".rxjava.RxJavaTransformActivity"/>
+        <activity android:name=".rxjava.RxJavaCombineActivity"/>
     </application>
 
 </manifest>
