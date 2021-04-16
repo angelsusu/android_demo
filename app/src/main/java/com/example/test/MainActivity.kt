@@ -14,6 +14,9 @@ import com.dianping.logan.Logan
 import com.dianping.logan.LoganConfig
 import com.example.test.coroutine.CoroutineTestActivity
 import com.example.test.dagger.DaggerActivity
+import com.example.test.dynamicproxy.SellDynamicProxy
+import com.example.test.dynamicproxy.ISell
+import com.example.test.dynamicproxy.Sell
 import com.example.test.lifecycle.LifecycleTestActivity
 import com.example.test.log.LoganParser
 import com.example.test.log.TestActivity
@@ -28,6 +31,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.io.*
+import java.lang.reflect.Proxy
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -92,6 +96,19 @@ class MainActivity : AppCompatActivity() {
         }
         btn_rxjava_test?.setOnClickListener {
             startActivity(Intent(this, RxJavaActivity::class.java))
+        }
+        btn_dynamic_proxy_test?.setOnClickListener {
+            //创建中介类实例
+            val proxy = SellDynamicProxy(Sell())
+
+            //获取代理类实例sell
+            val sell = Proxy.newProxyInstance(Sell::class.java.classLoader,
+                arrayOf<Class<*>>(
+                    ISell::class.java
+                ), proxy) as? ISell
+
+            //通过代理类对象调用代理类方法，实际上会转到invoke方法调用
+            sell?.sell()
         }
     }
 
