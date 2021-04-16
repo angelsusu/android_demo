@@ -73,3 +73,35 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.2.15'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
 }
+
+//2 配置阶段
+project.beforeEvaluate {
+    println '配置阶段 beforeEvaluate'
+}
+gradle.afterProject {
+    println '配置阶段 afterProject'
+}
+project.afterEvaluate {
+    println '配置阶段 afterEvaluate'
+}
+gradle.projectsEvaluated {
+    println '配置阶段 projectsEvaluated'
+}
+gradle.taskGraph.whenReady {
+    println '配置阶段 whenReady'
+}
+// 3.执行阶段
+gradle.taskGraph.beforeTask {
+    println "执行阶段 beforeTask"
+}
+gradle.taskGraph.afterTask {
+    println "执行阶段 afterTask "
+}
+// 4.build结束
+gradle.buildFinished {
+    println '构建结束 buildFinished'
+}
+
+task myTask {
+    println '自定义task'
+}
