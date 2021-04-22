@@ -45,7 +45,7 @@ class UserDataTypeAdapter : TypeAdapter<UserData>() {
 }
 
 /**
- * Int类型处理器
+ * Int类型处理器，配合注解[@JsonAdapter]使用
  */
 class IntegerTypeAdapter : TypeAdapter<Int>() {
     override fun write(out: JsonWriter?, value: Int?) {
