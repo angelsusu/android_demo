@@ -14,9 +14,12 @@ import com.dianping.logan.Logan
 import com.dianping.logan.LoganConfig
 import com.example.test.coroutine.CoroutineTestActivity
 import com.example.test.dagger.DaggerActivity
+import com.example.test.data.UserData
+import com.example.test.data.UserDataWithDefault
 import com.example.test.dynamicproxy.SellDynamicProxy
 import com.example.test.dynamicproxy.ISell
 import com.example.test.dynamicproxy.Sell
+import com.example.test.gson.UserDataTypeAdapter
 import com.example.test.lifecycle.LifecycleTestActivity
 import com.example.test.log.LoganParser
 import com.example.test.log.TestActivity
@@ -25,6 +28,8 @@ import com.example.test.room.RoomTestActivity
 import com.example.test.rxjava.RxJavaActivity
 import com.example.test.viewmodel.ViewModelTestActivity
 import com.example.test.widgets.WidgetsTestActivity
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.tencent.mars.xlog.Xlog
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.GlobalScope
@@ -109,6 +114,10 @@ class MainActivity : AppCompatActivity() {
 
             //通过代理类对象调用代理类方法，实际上会转到invoke方法调用
             sell?.sell()
+        }
+        btn_gson_test?.setOnClickListener {
+            fromGsonTest()
+            toGsonTest()
         }
     }
 
@@ -353,6 +362,30 @@ class MainActivity : AppCompatActivity() {
                 Log.d("subeiting", "test map:$str")
             }
         }
+    }
+
+
+    private fun fromGsonTest() {
+        //使用自定义的解析器
+        //val gson = GsonBuilder().registerTypeAdapter(UserData::class.java, UserDataTypeAdapter()).create()
+        //val data1 = gson.fromJson<UserData>("{\"name\":\"subeiting\"}", UserData::class.java)
+
+        val data1 = Gson().fromJson<UserData>("{\"name\":\"subeiting\", \"age\":\"\"}", UserData::class.java)
+
+        val data2 = Gson().fromJson<UserDataWithDefault>(
+            "{\"name\":null}",
+            UserDataWithDefault::class.java
+        )
+        debug(Common.TAG, "gson test: $data1: $data2")
+    }
+
+
+    private fun toGsonTest() {
+        //使用自定义的解析器
+        val gson = GsonBuilder().registerTypeAdapter(UserData::class.java, UserDataTypeAdapter()).create()
+        val str = gson.toJson(UserData("beiting", 12))
+
+        debug(Common.TAG, "gson test: $str")
     }
 
     companion object {

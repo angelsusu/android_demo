@@ -72,6 +72,9 @@ dependencies {
     //rxjava
     implementation 'io.reactivex.rxjava2:rxjava:2.2.15'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+    //gson
+    implementation 'com.google.code.gson:gson:2.8.6'
 }
 
 //2 配置阶段
