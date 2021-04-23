@@ -2,6 +2,8 @@ package com.example.test.fragment
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.commit
+import com.example.test.R
 
 /**
  * author: beitingsu
@@ -16,8 +18,21 @@ class FragmentTestActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setContentView(R.layout.activity_fragment_test)
+
         if (savedInstanceState == null) {
-            mFragmentManagerWrapper.showFragment(FragmentOne::class.java)
+            //mFragmentManagerWrapper.showFragment(FragmentOne::class.java)
+
+            //参数传递测试
+//            supportFragmentManager.commit {
+//                replace(R.id.fragment_container, FragmentParamsTest("这是传递的参数"))
+//            }
+
+            //参数传递测试
+            supportFragmentManager.commit {
+                replace(R.id.fragment_container, FragmentParamsTest.newInstance("这是传递的参数"))
+            }
+
         }
     }
 
