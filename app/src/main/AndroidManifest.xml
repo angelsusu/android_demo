@@ -36,6 +36,7 @@
         <activity android:name=".rxjava.RxJavaCreateActivity"/>
         <activity android:name=".rxjava.RxJavaTransformActivity"/>
         <activity android:name=".rxjava.RxJavaCombineActivity"/>
+        <activity android:name=".fragment.FragmentTestActivity"/>
     </application>
 
 </manifest>

@@ -138,6 +138,14 @@
             android:textSize="20sp"
             android:text="gson序列化和反序列化测试" />
 
+
+        <Button
+            android:id="@+id/btn_fragment_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="fragment管理" />
+
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

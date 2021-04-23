@@ -19,6 +19,7 @@ import com.example.test.data.UserDataWithDefault
 import com.example.test.dynamicproxy.SellDynamicProxy
 import com.example.test.dynamicproxy.ISell
 import com.example.test.dynamicproxy.Sell
+import com.example.test.fragment.FragmentTestActivity
 import com.example.test.gson.UserDataTypeAdapter
 import com.example.test.lifecycle.LifecycleTestActivity
 import com.example.test.log.LoganParser
@@ -118,6 +119,9 @@ class MainActivity : AppCompatActivity() {
         btn_gson_test?.setOnClickListener {
             fromGsonTest()
             toGsonTest()
+        }
+        btn_fragment_test?.setOnClickListener {
+            startActivity(Intent(this, FragmentTestActivity::class.java))
         }
     }
 
