@@ -16,11 +16,12 @@ import com.example.test.coroutine.CoroutineTestActivity
 import com.example.test.dagger.DaggerActivity
 import com.example.test.data.UserData
 import com.example.test.data.UserDataWithDefault
-import com.example.test.dynamicproxy.SellDynamicProxy
 import com.example.test.dynamicproxy.ISell
 import com.example.test.dynamicproxy.Sell
+import com.example.test.dynamicproxy.SellDynamicProxy
 import com.example.test.fragment.FragmentTestActivity
 import com.example.test.gson.UserDataTypeAdapter
+import com.example.test.ipc.IPCTestActivity
 import com.example.test.lifecycle.LifecycleTestActivity
 import com.example.test.log.LoganParser
 import com.example.test.log.TestActivity
@@ -122,6 +123,9 @@ class MainActivity : AppCompatActivity() {
         }
         btn_fragment_test?.setOnClickListener {
             startActivity(Intent(this, FragmentTestActivity::class.java))
+        }
+        btn_ipc_test?.setOnClickListener {
+            startActivity(Intent(this, IPCTestActivity::class.java))
         }
     }
 

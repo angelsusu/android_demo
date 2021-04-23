@@ -37,6 +37,12 @@
         <activity android:name=".rxjava.RxJavaTransformActivity"/>
         <activity android:name=".rxjava.RxJavaCombineActivity"/>
         <activity android:name=".fragment.FragmentTestActivity"/>
+        <activity android:name=".ipc.IPCTestActivity"/>
+
+
+        <service
+            android:name=".ipc.IPCService"
+            android:process=":service" />
     </application>
 
 </manifest>
