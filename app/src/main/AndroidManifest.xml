@@ -43,6 +43,9 @@
         <service
             android:name=".ipc.IPCService"
             android:process=":service" />
+        <service
+            android:name=".ipc.MessengerService"
+            android:process=":service" />
     </application>
 
 </manifest>
