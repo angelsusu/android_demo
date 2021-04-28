@@ -6,12 +6,14 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.test.Common
 import com.example.test.R
+import com.example.test.commonDebug
 import com.example.test.debug
 import kotlinx.android.synthetic.main.activity_concurrent_test.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.concurrent.CountDownLatch
+import java.util.concurrent.CyclicBarrier
 import java.util.concurrent.Semaphore
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicBoolean
@@ -47,11 +49,15 @@ class ConcurrentTestActivity : AppCompatActivity() {
     private val mReadLock = mReentrantReadWriteLock.readLock()
     private val mWriteLock = mReentrantReadWriteLock.writeLock()
 
-
     //解决了写饥饿的问题
     @RequiresApi(Build.VERSION_CODES.N)
     private val mStampedLock = StampedLock()
     private var mStampedValue = 0
+
+    //设置屏障要拦截的线程为2, 处理完之后执行当前run方法
+    private var mCyclicBarrier = CyclicBarrier(2) {
+        commonDebug("cyclicBarrier await end")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,6 +91,9 @@ class ConcurrentTestActivity : AppCompatActivity() {
         }
         btn_stampedLock?.setOnClickListener {
             stampedLockTest()
+        }
+        btn_cyclicBarrier?.setOnClickListener {
+            cyclicBarrierTest()
         }
     }
 
@@ -314,6 +323,32 @@ class ConcurrentTestActivity : AppCompatActivity() {
             debug(
                 Common.TAG,
                 "stampedLock test write lock in thread 2 end"
+            )
+        }).start()
+    }
+
+    private fun cyclicBarrierTest() {
+        Thread(Runnable {
+            debug(
+                Common.TAG,
+                "cyclicBarrier test in thread 1 begin"
+            )
+            mCyclicBarrier.await()
+            debug(
+                Common.TAG,
+                "cyclicBarrier test in thread 1 end"
+            )
+        }).start()
+
+        Thread(Runnable {
+            debug(
+                Common.TAG,
+                "cyclicBarrier test in thread 2 begin"
+            )
+            mCyclicBarrier.await()
+            debug(
+                Common.TAG,
+                "cyclicBarrier test in thread 2 end"
             )
         }).start()
     }

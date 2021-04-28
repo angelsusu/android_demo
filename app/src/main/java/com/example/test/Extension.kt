@@ -16,3 +16,8 @@ inline fun <reified T> T.debug(log: Any) {
 inline fun <reified T> T.debug(tag:String, log: Any) {
     Log.d(tag, log.toString())
 }
+
+//日志打印
+inline fun <reified T> T.commonDebug(log: Any) {
+    debug(Common.TAG, log)
+}
