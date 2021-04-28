@@ -12,6 +12,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.dianping.logan.Logan
 import com.dianping.logan.LoganConfig
+import com.example.test.concurrent.ConcurrentTestActivity
 import com.example.test.coroutine.CoroutineTestActivity
 import com.example.test.dagger.DaggerActivity
 import com.example.test.data.UserData
@@ -126,6 +127,9 @@ class MainActivity : AppCompatActivity() {
         }
         btn_ipc_test?.setOnClickListener {
             startActivity(Intent(this, IPCTestActivity::class.java))
+        }
+        btn_concurrent_test?.setOnClickListener {
+            startActivity(Intent(this, ConcurrentTestActivity::class.java))
         }
     }
 

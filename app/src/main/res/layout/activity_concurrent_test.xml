@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:paddingTop="20dp">
+
+    <Button
+        android:id="@+id/btn_synchronized"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Synchronized" />
+
+
+    <Button
+        android:id="@+id/btn_volatile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="volatile" />
+
+    <Button
+        android:id="@+id/btn_cas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="CAS" />
+
+    <Button
+        android:id="@+id/btn_countDownLatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="CountDownLatch" />
+
+    <Button
+        android:id="@+id/btn_semaphore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="Semaphore" />
+
+    <Button
+        android:id="@+id/btn_reentrantLock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="ReentrantLock" />
+
+    <Button
+        android:id="@+id/btn_reentrantReadWriteLock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="ReentrantReadWriteLock" />
+
+    <Button
+        android:id="@+id/btn_stampedLock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="StampedLock" />
+
+
+</LinearLayout>
