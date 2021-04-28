@@ -333,6 +333,7 @@ class ConcurrentTestActivity : AppCompatActivity() {
                 Common.TAG,
                 "cyclicBarrier test in thread 1 begin"
             )
+            //线程完成工作后调用await设置屏障
             mCyclicBarrier.await()
             debug(
                 Common.TAG,
@@ -345,6 +346,7 @@ class ConcurrentTestActivity : AppCompatActivity() {
                 Common.TAG,
                 "cyclicBarrier test in thread 2 begin"
             )
+            //线程完成工作后调用await设置屏障
             mCyclicBarrier.await()
             debug(
                 Common.TAG,
