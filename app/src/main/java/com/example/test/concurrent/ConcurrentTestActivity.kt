@@ -2,6 +2,8 @@ package com.example.test.concurrent
 
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.test.Common
@@ -21,6 +23,7 @@ import java.util.concurrent.locks.ReentrantLock
 import java.util.concurrent.locks.ReentrantReadWriteLock
 import java.util.concurrent.locks.StampedLock
 import kotlin.concurrent.withLock
+
 
 /**
  * author: beitingsu
@@ -59,6 +62,9 @@ class ConcurrentTestActivity : AppCompatActivity() {
         commonDebug("cyclicBarrier await end")
     }
 
+    //实现wait和notify功能
+    private val mCondition = mReentrantLock.newCondition()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_concurrent_test)
@@ -94,6 +100,9 @@ class ConcurrentTestActivity : AppCompatActivity() {
         }
         btn_cyclicBarrier?.setOnClickListener {
             cyclicBarrierTest()
+        }
+        btn_condition?.setOnClickListener {
+            conditionTest()
         }
     }
 
@@ -352,6 +361,29 @@ class ConcurrentTestActivity : AppCompatActivity() {
                 Common.TAG,
                 "cyclicBarrier test in thread 2 end"
             )
+        }).start()
+    }
+
+    //await()方法调用时，会释放线程获得的锁，await()方法返回后，线程又会重新试图获得锁。
+    private fun conditionTest() {
+        Thread(Runnable {
+            commonDebug("condition test in thread 1 begin")
+            mReentrantLock.withLock {
+                //等待，会释放锁
+                mCondition.await()
+
+                //唤醒后会重新获得锁
+                commonDebug("condition test in thread 1 end")
+            }
+        }).start()
+
+        Thread(Runnable {
+            commonDebug("condition test in thread 2 begin")
+            mReentrantLock.withLock {
+                //唤醒所有线程
+                mCondition.signalAll()
+                commonDebug("condition test in thread 2 end")
+            }
         }).start()
     }
 
