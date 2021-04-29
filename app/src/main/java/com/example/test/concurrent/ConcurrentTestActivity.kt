@@ -2,8 +2,6 @@ package com.example.test.concurrent
 
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.test.Common
