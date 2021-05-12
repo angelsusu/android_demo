@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.test.Common
 import com.example.test.R
+import com.example.test.commonDebug
 import com.example.test.debug
 import dagger.Lazy
 import kotlinx.android.synthetic.main.activity_dagger_test.*
@@ -15,7 +16,7 @@ import javax.inject.Provider
  * author: beitingsu
  * created on: 2021/3/16 3:24 PM
  */
-class DaggerActivity: AppCompatActivity() {
+class DaggerActivity: AppCompatActivity(), IMVPView {
 //
 //    @Inject
 //    lateinit var classA : ClassA
@@ -43,11 +44,15 @@ class DaggerActivity: AppCompatActivity() {
 //    @Inject
 //    lateinit var classE: ClassE
 
-    @Inject
-    lateinit var classF: Lazy<ClassF>
+//    @Inject
+//    lateinit var classF: Lazy<ClassF>
+//
+//    @Inject
+//    lateinit var classG: Provider<ClassG>
+
 
     @Inject
-    lateinit var classG: Provider<ClassG>
+    lateinit var presenter: DaggerPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,8 +68,11 @@ class DaggerActivity: AppCompatActivity() {
 //        DaggerClassComponent.builder().value(2).appComponent(appComponent).build().inject(this)
 
         //父子组件
-        val parentComponent = DaggerParentComponent.builder().build()
-        parentComponent.subClassComponent().inject(this)
+//        val parentComponent = DaggerParentComponent.builder().build()
+//        parentComponent.subClassComponent().inject(this)
+
+        //MVP  test
+        DaggerMVPComponent.builder().mVPModule(MVPModule(this)).build().inject(this)
 
         btn_inject_test?.setOnClickListener {
 //            debug(Common.TAG, "inject class:classA=${classA}" +
@@ -73,7 +81,12 @@ class DaggerActivity: AppCompatActivity() {
 //                    ":classC=${classC}:classCTwo=$classCTwo" +
 //                    ":classD=${classD.value}" +
 //                    ":classE=${classE}" )
-            debug(Common.TAG, "classF=${classF.get()}:${classF.get()}:classG=${classG.get()}:${classG.get()}")
+//            debug(Common.TAG, "classF=${classF.get()}:${classF.get()}:classG=${classG.get()}:${classG.get()}")
+            commonDebug("presenter:${presenter.loadData()}")
         }
+    }
+
+    override fun updateUI() {
+
     }
 }

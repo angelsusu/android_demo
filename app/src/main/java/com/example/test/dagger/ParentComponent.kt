@@ -6,7 +6,7 @@ import dagger.Component
  * author: beitingsu
  * created on: 2021/3/16 3:27 PM
  */
-@Component(modules = [ParentModule::class])
+@Component(modules = [ParentModule::class, MVPModule::class])
 interface ParentComponent {
 
    //返回子组件

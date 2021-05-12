@@ -9,7 +9,7 @@ import javax.inject.Singleton
  * created on: 2021/3/16 3:27 PM
  */
 @Singleton
-@Component(dependencies = [AppComponent::class], modules = [ClassModule::class])
+@Component(dependencies = [AppComponent::class], modules = [ClassModule::class, MVPModule::class])
 interface ClassComponent {
    fun inject(activity: DaggerActivity)
 
@@ -18,6 +18,8 @@ interface ClassComponent {
 
       @BindsInstance
       fun value(value: Int): Builder
+
+      fun mvpModule(module: MVPModule): Builder
 
       fun appComponent(appComponent: AppComponent): Builder
 

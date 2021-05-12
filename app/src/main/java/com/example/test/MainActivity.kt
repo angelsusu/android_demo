@@ -49,6 +49,8 @@ import java.util.concurrent.ConcurrentLinkedQueue
 
 class MainActivity : AppCompatActivity() {
 
+    private var mName = "Main"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -130,6 +132,11 @@ class MainActivity : AppCompatActivity() {
         }
         btn_concurrent_test?.setOnClickListener {
             startActivity(Intent(this, ConcurrentTestActivity::class.java))
+        }
+
+        btn_innerclass_test?.setOnClickListener {
+            //匿名内部类
+            innerClassTest()
         }
     }
 
@@ -398,6 +405,39 @@ class MainActivity : AppCompatActivity() {
         val str = gson.toJson(UserData("beiting", 12))
 
         debug(Common.TAG, "gson test: $str")
+    }
+
+
+    private fun innerClassTest() {
+
+        InnerClass().print()
+
+        //方法内部类，是不能有public、protected、private 以及 static 修饰符的，作用域仅限该方法内
+        class PartialClass {
+            fun print() {
+                commonDebug("this is PartialClass")
+            }
+        }
+
+        PartialClass().print()
+
+        StaticClass().print()
+
+    }
+
+    //成员内部类，可以引用外部类的变量，外部实例化需要先持有外部类的实例
+    inner class InnerClass {
+        fun print() {
+            commonDebug("this is innerClass:$mName")
+        }
+    }
+
+
+    //静态内部类，不能引用外部类，可以直接实例化
+    class StaticClass {
+        fun print() {
+            commonDebug("this is StaticClass")
+        }
     }
 
     companion object {
