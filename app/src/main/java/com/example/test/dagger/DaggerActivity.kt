@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_dagger_test.*
 import javax.inject.Inject
 import javax.inject.Named
 import javax.inject.Provider
+import javax.inject.Singleton
 
 /**
  * author: beitingsu

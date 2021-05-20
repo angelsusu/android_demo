@@ -11,7 +11,7 @@ import dagger.Provides
 class AppModule {
 
     @Provides
-    fun provideClassE() : ClassE {
+    fun provideClassE(): ClassE {
         return ClassE()
     }
 }
