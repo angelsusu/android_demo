@@ -50,6 +50,10 @@ class RxJavaActivity : AppCompatActivity() {
         mDisposables.add(Bus.monitorTopicEventBackground(IO_TOPIC).subscribe { event ->
             commonDebug("${event.topic}:${event.data}")
         })
+
+        btn_backPressure_test?.setOnClickListener {
+            startActivity(Intent(this, RxJavaBackPressureActivity::class.java))
+        }
     }
 
     override fun onDestroy() {

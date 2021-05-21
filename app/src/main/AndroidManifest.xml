@@ -39,6 +39,7 @@
         <activity android:name=".fragment.FragmentTestActivity"/>
         <activity android:name=".ipc.IPCTestActivity"/>
         <activity android:name=".concurrent.ConcurrentTestActivity"/>
+        <activity android:name=".rxjava.RxJavaBackPressureActivity"/>
 
 
         <service

@@ -17,42 +17,49 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="背压策略测试"
+                android:textSize="25sp"
+                android:gravity="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"/>
+
             <Button
-                android:id="@+id/btn_create_test"
+                android:id="@+id/btn_error_test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:text="创建操作符" />
+                android:text="error策略" />
 
             <Button
-                android:id="@+id/btn_transform_test"
+                android:id="@+id/btn_missing_test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:text="转换操作符" />
+                android:text="missing策略" />
 
             <Button
-                android:id="@+id/btn_combine_test"
+                android:id="@+id/btn_buffer_test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:text="组合操作符" />
+                android:text="buffer策略" />
 
             <Button
-                android:id="@+id/btn_bus_test"
+                android:id="@+id/btn_drop_test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:text="事件分发测试" />
+                android:text="drop策略" />
 
             <Button
-                android:id="@+id/btn_backPressure_test"
+                android:id="@+id/btn_latest_test"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:text="背压测试" />
-
-
+                android:text="latest策略" />
 
         </LinearLayout>
 
