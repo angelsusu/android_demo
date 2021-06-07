@@ -20,6 +20,10 @@ import com.example.test.data.UserDataWithDefault
 import com.example.test.dynamicproxy.ISell
 import com.example.test.dynamicproxy.Sell
 import com.example.test.dynamicproxy.SellDynamicProxy
+import com.example.test.expand.Child
+import com.example.test.expand.Parent
+import com.example.test.expand.expandParam
+import com.example.test.expand.test
 import com.example.test.fragment.FragmentTestActivity
 import com.example.test.gson.UserDataTypeAdapter
 import com.example.test.ipc.IPCTestActivity
@@ -138,6 +142,9 @@ class MainActivity : AppCompatActivity() {
             //匿名内部类
             innerClassTest()
         }
+        btn_expand_test?.setOnClickListener {
+            kotlinExpandTest()
+        }
     }
 
     private fun openCamera() {
@@ -222,6 +229,7 @@ class MainActivity : AppCompatActivity() {
         requestCode: Int, permissions: Array<out String>,
         grantResults: IntArray
     ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
             PERMISSION_CAMERA_REQUEST_CODE -> {
                 if (grantResults.size > 0
@@ -438,6 +446,18 @@ class MainActivity : AppCompatActivity() {
         fun print() {
             commonDebug("this is StaticClass")
         }
+    }
+
+    private fun kotlinExpandTest() {
+        val parent = Parent()
+        val child1: Parent = Child()
+        val child2 = Child()
+        parent.print()
+        parent.test()
+        child1.test() //调用的是父类的方法
+        child2.test()
+        parent.expandParam = "hello helo"
+        commonDebug("parent expandParam:${parent.expandParam}")
     }
 
     companion object {
