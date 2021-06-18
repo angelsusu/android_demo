@@ -176,6 +176,13 @@
             android:textSize="20sp"
             android:text="扩展测试" />
 
+        <Button
+            android:id="@+id/btn_activity_result_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="activity result测试" />
+
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>

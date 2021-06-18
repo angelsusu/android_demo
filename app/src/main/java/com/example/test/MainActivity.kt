@@ -1,17 +1,20 @@
 package com.example.test
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContract
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.dianping.logan.Logan
 import com.dianping.logan.LoganConfig
+import com.example.test.activityresult.ResultActivity
 import com.example.test.concurrent.ConcurrentTestActivity
 import com.example.test.coroutine.CoroutineTestActivity
 import com.example.test.dagger.DaggerActivity
@@ -54,6 +57,21 @@ import java.util.concurrent.ConcurrentLinkedQueue
 class MainActivity : AppCompatActivity() {
 
     private var mName = "Main"
+
+    private val contract = object : ActivityResultContract<String, String>() {
+        override fun createIntent(context: Context, input: String?): Intent {
+            return Intent(context, ResultActivity::class.java).apply {
+                putExtra(ResultActivity.INPUT_DATA_KEY, input)
+            }
+        }
+
+        override fun parseResult(resultCode: Int, intent: Intent?): String {
+            return intent?.getStringExtra(ResultActivity.OUTPUT_DATA_KEY) ?: ""
+        }
+    }
+    private val launcher = registerForActivityResult(contract) { output ->
+        commonDebug("registerForActivityResult:$output")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -116,10 +134,12 @@ class MainActivity : AppCompatActivity() {
             val proxy = SellDynamicProxy(Sell())
 
             //获取代理类实例sell
-            val sell = Proxy.newProxyInstance(Sell::class.java.classLoader,
+            val sell = Proxy.newProxyInstance(
+                Sell::class.java.classLoader,
                 arrayOf<Class<*>>(
                     ISell::class.java
-                ), proxy) as? ISell
+                ), proxy
+            ) as? ISell
 
             //通过代理类对象调用代理类方法，实际上会转到invoke方法调用
             sell?.sell()
@@ -144,6 +164,9 @@ class MainActivity : AppCompatActivity() {
         }
         btn_expand_test?.setOnClickListener {
             kotlinExpandTest()
+        }
+        btn_activity_result_test?.setOnClickListener {
+            launcher.launch("registerForActivityResult test")
         }
     }
 
@@ -268,7 +291,7 @@ class MainActivity : AppCompatActivity() {
             .setCachePath(dir)
             .setPath(
                 (applicationContext.getExternalFilesDir(null)?.absolutePath
-                        + File.separator) + "logan" + File.separator +  "logan_v1"
+                        + File.separator) + "logan" + File.separator + "logan_v1"
             )
             .setEncryptKey16("0123456789012345".toByteArray())
             .setEncryptIV16("0123456789012345".toByteArray())
@@ -325,7 +348,7 @@ class MainActivity : AppCompatActivity() {
     private fun loganWrite() {
         Thread(Runnable {
             var i = 0
-            while ( i < 1000) {
+            while (i < 1000) {
                 Logan.w("subeiting test logan:$i", 2)
                 Log.d("loganTest", "$i")
                 ++i
@@ -350,8 +373,10 @@ class MainActivity : AppCompatActivity() {
         val cachePath = this.getFilesDir().absolutePath + "/xlog"
 
         Log.d("xLogTest", "$logPath")
-        Xlog.appenderOpen(Xlog.LEVEL_DEBUG, Xlog.AppednerModeAsync, cachePath, logPath,
-            "MarsSample", 0, "");
+        Xlog.appenderOpen(
+            Xlog.LEVEL_DEBUG, Xlog.AppednerModeAsync, cachePath, logPath,
+            "MarsSample", 0, ""
+        );
         Xlog.setConsoleLogOpen(true);
 
         com.tencent.mars.xlog.Log.setLogImp(Xlog())
@@ -397,7 +422,10 @@ class MainActivity : AppCompatActivity() {
         //val gson = GsonBuilder().registerTypeAdapter(UserData::class.java, UserDataTypeAdapter()).create()
         //val data1 = gson.fromJson<UserData>("{\"name\":\"subeiting\"}", UserData::class.java)
 
-        val data1 = Gson().fromJson<UserData>("{\"name\":\"subeiting\", \"age\":\"\"}", UserData::class.java)
+        val data1 = Gson().fromJson<UserData>(
+            "{\"name\":\"subeiting\", \"age\":\"\"}",
+            UserData::class.java
+        )
 
         val data2 = Gson().fromJson<UserDataWithDefault>(
             "{\"name\":null}",
@@ -409,7 +437,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun toGsonTest() {
         //使用自定义的解析器
-        val gson = GsonBuilder().registerTypeAdapter(UserData::class.java, UserDataTypeAdapter()).create()
+        val gson =
+            GsonBuilder().registerTypeAdapter(UserData::class.java, UserDataTypeAdapter()).create()
         val str = gson.toJson(UserData("beiting", 12))
 
         debug(Common.TAG, "gson test: $str")
