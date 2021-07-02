@@ -15,6 +15,7 @@ import androidx.core.content.ContextCompat
 import com.dianping.logan.Logan
 import com.dianping.logan.LoganConfig
 import com.example.test.activityresult.ResultActivity
+import com.example.test.concurrent.BlockQueueTestActivity
 import com.example.test.concurrent.ConcurrentTestActivity
 import com.example.test.coroutine.CoroutineTestActivity
 import com.example.test.dagger.DaggerActivity
@@ -167,6 +168,9 @@ class MainActivity : AppCompatActivity() {
         }
         btn_activity_result_test?.setOnClickListener {
             launcher.launch("registerForActivityResult test")
+        }
+        btn_block_queue_test?.setOnClickListener {
+            startActivity(Intent(this, BlockQueueTestActivity::class.java))
         }
     }
 

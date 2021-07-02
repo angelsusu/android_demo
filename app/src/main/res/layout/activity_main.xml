@@ -183,6 +183,13 @@
             android:textSize="20sp"
             android:text="activity result测试" />
 
+        <Button
+            android:id="@+id/btn_block_queue_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="阻塞队列测试" />
+
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>
