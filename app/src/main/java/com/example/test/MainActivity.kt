@@ -55,7 +55,7 @@ import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.ConcurrentLinkedQueue
 
 
-class MainActivity : AppCompatActivity() {
+open class MainActivity : AppCompatActivity() {
 
     private var mName = "Main"
 
@@ -83,7 +83,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun init() {
         btn_take_photo?.setOnClickListener {
-            checkPermissionAndCamera()
+            //checkPermissionAndCamera()
+
+            val i = Intent()
+            i.setClassName(
+                "com.sea.foody.nowmerchant.internal",
+                "com.sea.foody.nowmerchant.ui.splash.SplashActivity"
+            )
+            i.putExtra("serializable_key", UserData("test", 20))
+            startActivity(i)
         }
 
         btn_take_video?.setOnClickListener {

@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -43,6 +44,10 @@
         <activity android:name=".activityresult.ResultActivity"/>
         <activity android:name=".concurrent.BlockQueueTestActivity"/>
 
+        <activity
+            android:label="InstrumentationActivity"
+            android:name="com.example.test.jacoco.InstrumentedActivity" />
+
 
         <service
             android:name=".ipc.IPCService"
@@ -51,5 +56,13 @@
             android:name=".ipc.MessengerService"
             android:process=":service" />
     </application>
+
+
+    <!--name需要写全称-->
+    <instrumentation
+        android:name="com.example.test.jacoco.JacocoInstrumentation"
+        android:handleProfiling="true"
+        android:label="CoverageInstrumentation"
+        android:targetPackage="com.example.android" />
 
 </manifest>

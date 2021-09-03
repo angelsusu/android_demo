@@ -17,3 +17,4 @@ gradle.projectsLoaded  {
 gradle.beforeProject {
     println '配置阶段 beforeProject --- in settings.gradle'
 }
+include ':lib'

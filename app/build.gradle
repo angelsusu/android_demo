@@ -3,6 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+apply from: 'jacoco.gradle'
+
+def enable = project.hasProperty('enable') ? project.property('enable') : "false"
+
+println enable
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -21,6 +27,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            /**打开覆盖率统计开关*/
+            testCoverageEnabled = (enable == "true")
         }
     }
 
@@ -80,34 +90,34 @@ dependencies {
     implementation 'androidx.fragment:fragment-ktx:1.3.2'
 }
 
-//2 配置阶段
-project.beforeEvaluate {
-    println '配置阶段 beforeEvaluate'
-}
-gradle.afterProject {
-    println '配置阶段 afterProject'
-}
-project.afterEvaluate {
-    println '配置阶段 afterEvaluate'
-}
-gradle.projectsEvaluated {
-    println '配置阶段 projectsEvaluated'
-}
-gradle.taskGraph.whenReady {
-    println '配置阶段 whenReady'
-}
-// 3.执行阶段
-gradle.taskGraph.beforeTask {
-    println "执行阶段 beforeTask"
-}
-gradle.taskGraph.afterTask {
-    println "执行阶段 afterTask "
-}
-// 4.build结束
-gradle.buildFinished {
-    println '构建结束 buildFinished'
-}
+////2 配置阶段
+//project.beforeEvaluate {
+//    println '配置阶段 beforeEvaluate'
+//}
+//gradle.afterProject {
+//    println '配置阶段 afterProject'
+//}
+//project.afterEvaluate {
+//    println '配置阶段 afterEvaluate'
+//}
+//gradle.projectsEvaluated {
+//    println '配置阶段 projectsEvaluated'
+//}
+//gradle.taskGraph.whenReady {
+//    println '配置阶段 whenReady'
+//}
+//// 3.执行阶段
+//gradle.taskGraph.beforeTask {
+//    println "执行阶段 beforeTask"
+//}
+//gradle.taskGraph.afterTask {
+//    println "执行阶段 afterTask "
+//}
+//// 4.build结束
+//gradle.buildFinished {
+//    println '构建结束 buildFinished'
+//}
 
-task myTask {
-    println '自定义task'
-}
+//task myTask {
+//    println '自定义task'
+//}
