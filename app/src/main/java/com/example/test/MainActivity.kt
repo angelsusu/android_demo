@@ -48,6 +48,8 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.io.*
 import java.lang.reflect.Proxy
+import java.math.BigDecimal
+import java.math.RoundingMode
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -85,13 +87,25 @@ open class MainActivity : AppCompatActivity() {
         btn_take_photo?.setOnClickListener {
             //checkPermissionAndCamera()
 
-            val i = Intent()
-            i.setClassName(
-                "com.sea.foody.nowmerchant.internal",
-                "com.sea.foody.nowmerchant.ui.splash.SplashActivity"
-            )
-            i.putExtra("serializable_key", UserData("test", 20))
-            startActivity(i)
+//            val i = Intent()
+//            i.setClassName(
+//                "com.sea.foody.nowmerchant.internal",
+//                "com.sea.foody.nowmerchant.ui.splash.SplashActivity"
+//            )
+//            i.putExtra("serializable_key", UserData("test", 20))
+//            startActivity(i)
+
+            val formatter = BigDecimal(7.156f.toString())
+            commonDebug("format:${formatter.setScale(1, RoundingMode.FLOOR)}")
+//            commonDebug("format:${4.1f.toDouble()}:${formatter.format(4.1f.toDouble())}")
+//            commonDebug("format:${4.2f.toDouble()}：${formatter.format(4.2f)}")
+//            commonDebug("format:${4.3f.toDouble()}：${formatter.format(4.3f)}")
+//            commonDebug("format:${formatter.format(4.4f)}")
+//            commonDebug("format:${formatter.format(4.5f)}")
+
+            rating_bar?.rating = 4.1f
+
+            commonDebug("vm version:" + System.getProperty("java.vm.version"))
         }
 
         btn_take_video?.setOnClickListener {

@@ -1,0 +1,23 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
+
+dependencies {
+    //必须使用compileOnly
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    compileOnly 'com.android.tools.lint:lint-api:25.2.0'
+    compileOnly 'com.android.tools.lint:lint-checks:25.2.0'
+}
+
+jar {
+    manifest {
+        attributes("Lint-Registry": "com.example.lintrules.ImageViewLintRegistry")
+    }
+}

@@ -13,6 +13,16 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
+        <com.example.test.widgets.CustomRatingBar
+            android:id="@+id/rating_bar"
+            style="@style/RatingBarStar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:stepSize="0.5"
+            tools:rating="3" />
+
         <Button
             android:id="@+id/btn_take_photo"
             android:layout_width="wrap_content"
@@ -189,6 +199,40 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:text="阻塞队列测试" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/abc_vector_test"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="test 1111"
+                android:background="#44ff0000"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="2"
+                android:text="test 2222"
+                android:background="#4400ff00"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="2"
+                android:text="test 3333"
+                android:background="#440000ff"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
 
     </LinearLayout>
 
