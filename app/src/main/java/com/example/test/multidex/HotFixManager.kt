@@ -5,7 +5,6 @@ import android.os.Environment
 import java.io.File
 import java.io.IOException
 import java.lang.reflect.Array
-import java.util.*
 
 /**
  * author: beitingsu
