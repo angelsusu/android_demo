@@ -34,6 +34,7 @@ import com.example.test.ipc.IPCTestActivity
 import com.example.test.lifecycle.LifecycleTestActivity
 import com.example.test.log.LoganParser
 import com.example.test.log.TestActivity
+import com.example.test.multidex.HotFixActivity
 import com.example.test.player.PlayerTestActivity
 import com.example.test.room.RoomTestActivity
 import com.example.test.rxjava.RxJavaActivity
@@ -193,6 +194,9 @@ open class MainActivity : AppCompatActivity() {
         }
         btn_block_queue_test?.setOnClickListener {
             startActivity(Intent(this, BlockQueueTestActivity::class.java))
+        }
+        btn_hot_fix_test?.setOnClickListener {
+            startActivity(Intent(this, HotFixActivity::class.java))
         }
     }
 
