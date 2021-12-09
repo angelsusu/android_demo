@@ -20,3 +20,4 @@ gradle.beforeProject {
 include ':lib'
 include ':lintrules'
 include ':wrapper'
+include ':myplugin'

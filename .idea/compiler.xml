@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
       <module name="AndroidDemo.app" target="1.8" />
+      <module name="AndroidDemo.myplugin" target="1.8" />
       <module name="AndroidDemo.wrapper" target="1.8" />
     </bytecodeTargetLevel>
   </component>

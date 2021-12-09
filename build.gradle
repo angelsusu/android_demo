@@ -3,13 +3,15 @@
 buildscript {
     ext.kotlin_version = '1.3.71'
     repositories {
-        google()
+        maven { url '/Users/beitingsu/MyProject/repo/' }
         jcenter()
-        
+        google()
+
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.1'
+        classpath 'com.android.tools.build:gradle:4.1.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.example.myplugin:myplugin:1.0.0"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -18,10 +20,10 @@ buildscript {
 
 allprojects {
     repositories {
-        google()
+        maven { url '/Users/beitingsu/MyProject/repo/' }
         jcenter()
+        google()
 
-        
         flatDir {
             dirs rootProject.projectDir.absolutePath + '/app/libs'
         }
@@ -30,5 +32,12 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+this.project.subprojects { sub ->
+    sub.beforeEvaluate {
+        project
+        println "配置阶段 beforeEvaluate " + project.path
+    }
 }
 

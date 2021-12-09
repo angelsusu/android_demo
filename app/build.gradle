@@ -3,6 +3,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+apply plugin: 'com.example.myplugin.Myplugin'
+
 apply from: 'jacoco.gradle'
 
 def enable = project.hasProperty('enable') ? project.property('enable') : "false"
@@ -97,33 +99,34 @@ dependencies {
     implementation(name: 'lint', ext: 'aar')
 }
 
-////2 配置阶段
+//2 配置阶段
+//这里是调用不到的，要放在父工程中
 //project.beforeEvaluate {
 //    println '配置阶段 beforeEvaluate'
 //}
-//gradle.afterProject {
-//    println '配置阶段 afterProject'
-//}
-//project.afterEvaluate {
-//    println '配置阶段 afterEvaluate'
-//}
-//gradle.projectsEvaluated {
-//    println '配置阶段 projectsEvaluated'
-//}
-//gradle.taskGraph.whenReady {
-//    println '配置阶段 whenReady'
-//}
-//// 3.执行阶段
-//gradle.taskGraph.beforeTask {
-//    println "执行阶段 beforeTask"
-//}
-//gradle.taskGraph.afterTask {
-//    println "执行阶段 afterTask "
-//}
-//// 4.build结束
-//gradle.buildFinished {
-//    println '构建结束 buildFinished'
-//}
+gradle.afterProject {
+    println '配置阶段 afterProject'
+}
+project.afterEvaluate {
+    println '配置阶段 afterEvaluate'
+}
+gradle.projectsEvaluated {
+    println '配置阶段 projectsEvaluated'
+}
+gradle.taskGraph.whenReady {
+    println '配置阶段 whenReady'
+}
+// 3.执行阶段
+gradle.taskGraph.beforeTask {
+    println "执行阶段 beforeTask"
+}
+gradle.taskGraph.afterTask {
+    println "执行阶段 afterTask "
+}
+// 4.build结束
+gradle.buildFinished {
+    println '构建结束 buildFinished'
+}
 
 //task myTask {
 //    println '自定义task'
