@@ -39,6 +39,7 @@ import com.example.test.player.PlayerTestActivity
 import com.example.test.room.RoomTestActivity
 import com.example.test.rxjava.RxJavaActivity
 import com.example.test.viewmodel.ViewModelTestActivity
+import com.example.test.viewpager2.ViewPager2Activity
 import com.example.test.widgets.WidgetsTestActivity
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -197,6 +198,9 @@ open class MainActivity : AppCompatActivity() {
         }
         btn_hot_fix_test?.setOnClickListener {
             startActivity(Intent(this, HotFixActivity::class.java))
+        }
+        btn_viewpager_test?.setOnClickListener {
+            startActivity(Intent(this, ViewPager2Activity::class.java))
         }
     }
 

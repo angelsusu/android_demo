@@ -44,6 +44,8 @@
         <activity android:name=".rxjava.RxJavaBackPressureActivity"/>
         <activity android:name=".activityresult.ResultActivity"/>
         <activity android:name=".concurrent.BlockQueueTestActivity"/>
+        <activity android:name=".viewpager2.ViewPager2Activity"/>
+        <activity android:name=".viewpager2.ViewPager2TestActivity"/>
 
         <activity
             android:label="InstrumentationActivity"
