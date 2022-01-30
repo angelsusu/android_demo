@@ -1,9 +1,11 @@
 package com.example.test
 
 import android.Manifest
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.pm.PackageManager.DONT_KILL_APP
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
@@ -201,6 +203,34 @@ open class MainActivity : AppCompatActivity() {
         }
         btn_viewpager_test?.setOnClickListener {
             startActivity(Intent(this, ViewPager2Activity::class.java))
+        }
+        btn_change_icon_test?.setOnClickListener {
+            val aliasComponent = ComponentName(
+                this,
+                "com.example.test.AliasActivity"
+            )
+            val mainComponent =  ComponentName(
+                this,
+                "com.example.test.MainActivity"
+            )
+            val aliasState: Int
+            val mainState: Int
+            if (packageManager.getComponentEnabledSetting(aliasComponent) ==
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+            ) {
+                aliasState = PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+                mainState = PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+            } else {
+                aliasState = PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+                mainState = PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+            }
+            packageManager.setComponentEnabledSetting(
+                aliasComponent, aliasState,
+                DONT_KILL_APP
+            )
+            packageManager.setComponentEnabledSetting(
+                mainComponent, mainState, DONT_KILL_APP
+            )
         }
     }
 

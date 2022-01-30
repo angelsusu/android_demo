@@ -247,6 +247,13 @@
             android:textSize="20sp"
             android:text="viewpager测试"/>
 
+        <Button
+            android:id="@+id/btn_change_icon_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="切换icon"/>
+
 
     </LinearLayout>
 

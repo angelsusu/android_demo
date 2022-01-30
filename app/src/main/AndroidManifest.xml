@@ -16,13 +16,31 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name=".MyApplication">
-        <activity android:name="com.example.test.MainActivity">
+        <activity android:name="com.example.test.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <!--别名1-->
+        <activity-alias
+            android:name=".AliasActivity"
+            android:enabled="false"
+            android:label="Alias"
+            android:icon="@mipmap/launcher"
+            android:targetActivity=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
 
         <activity android:name="com.example.test.log.TestActivity"
             android:process=":other"/>
