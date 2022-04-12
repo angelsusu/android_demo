@@ -252,7 +252,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
+            android:visibility="gone"
             android:text="切换icon"/>
+
+
+        <Button
+            android:id="@+id/btn_flow_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="flow测试"/>
 
 
     </LinearLayout>

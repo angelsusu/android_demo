@@ -71,6 +71,8 @@
 
         <activity android:name=".multidex.HotFixActivity"/>
 
+        <activity android:name=".flow.FlowTestActivity"/>
+
 
         <service
             android:name=".ipc.IPCService"

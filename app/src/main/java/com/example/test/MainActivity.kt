@@ -30,6 +30,7 @@ import com.example.test.expand.Child
 import com.example.test.expand.Parent
 import com.example.test.expand.expandParam
 import com.example.test.expand.test
+import com.example.test.flow.FlowTestActivity
 import com.example.test.fragment.FragmentTestActivity
 import com.example.test.gson.UserDataTypeAdapter
 import com.example.test.ipc.IPCTestActivity
@@ -89,6 +90,7 @@ open class MainActivity : AppCompatActivity() {
 
     private fun init() {
         btn_take_photo?.setOnClickListener {
+
             //checkPermissionAndCamera()
 
 //            val i = Intent()
@@ -231,6 +233,9 @@ open class MainActivity : AppCompatActivity() {
             packageManager.setComponentEnabledSetting(
                 mainComponent, mainState, DONT_KILL_APP
             )
+        }
+        btn_flow_test?.setOnClickListener {
+            startActivity(Intent(this, FlowTestActivity::class.java))
         }
     }
 
