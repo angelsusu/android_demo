@@ -7,6 +7,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+
 
     <application
         android:allowBackup="true"
@@ -73,6 +76,7 @@
 
         <activity android:name=".flow.FlowTestActivity"/>
 
+        <activity android:name=".shortcut.ShortcutTestActivity"/>
 
         <service
             android:name=".ipc.IPCService"
@@ -80,6 +84,8 @@
         <service
             android:name=".ipc.MessengerService"
             android:process=":service" />
+
+        <receiver android:name=".shortcut.ShortcutTestActivity$ShortcutReceiver"/>
     </application>
 
 

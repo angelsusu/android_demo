@@ -41,6 +41,7 @@ import com.example.test.multidex.HotFixActivity
 import com.example.test.player.PlayerTestActivity
 import com.example.test.room.RoomTestActivity
 import com.example.test.rxjava.RxJavaActivity
+import com.example.test.shortcut.ShortcutTestActivity
 import com.example.test.viewmodel.ViewModelTestActivity
 import com.example.test.viewpager2.ViewPager2Activity
 import com.example.test.widgets.WidgetsTestActivity
@@ -236,6 +237,9 @@ open class MainActivity : AppCompatActivity() {
         }
         btn_flow_test?.setOnClickListener {
             startActivity(Intent(this, FlowTestActivity::class.java))
+        }
+        btn_shortcut_test?.setOnClickListener {
+            startActivity(Intent(this, ShortcutTestActivity::class.java))
         }
     }
 

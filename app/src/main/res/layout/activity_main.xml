@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView
+    android:id="@+id/ns_root"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -263,6 +264,12 @@
             android:textSize="20sp"
             android:text="flow测试"/>
 
+        <Button
+            android:id="@+id/btn_shortcut_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="shortcut测试"/>
 
     </LinearLayout>
 
